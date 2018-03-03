@@ -1,0 +1,25 @@
+<mdb-navbar SideClass="mb-1 navbar navbar-expand-lg navbar-light white " [containerInside]="true">
+    <logo >
+         <img src="../assets/Thrillworld-Logo.png" alt="" >
+    </logo>
+    <links>
+        
+        <ul class="navbar-nav mr-auto"></ul>
+        
+        <ul class="navbar-nav nav-flex-icons">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/signin']">SignIn</a>
+            </li>
+            
+           
+        </ul>
+    </links>
+  </mdb-navbar>
+  <!-- Main -->
