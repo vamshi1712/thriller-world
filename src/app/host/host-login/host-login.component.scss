@@ -1,0 +1,37 @@
+.form1{
+    box-sizing: border-box;
+    background-color: #f7f5f4;
+    padding: 25px;    
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.login{
+    padding-top: 75px;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+
+li{
+    list-style-type: none;
+}
+.login-pag{
+    padding-top: 80px;
+}
+
+.err-msg{
+    color: red;
+    padding-left: 15px;
+    font-family: cursive;
+}
+
+.login-pag{
+    background : url('http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/08/Beach-Pictures-1.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}

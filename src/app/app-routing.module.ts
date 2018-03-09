@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { BodyComponent } from './layout/body/body.component';
-import { SigninComponent } from './auth/signin/signin.component';
+
+import { HostComponent } from './host/host.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo : '/body', pathMatch: 'full'},
-  { path: 'login', component : LoginComponent },
-  { path: 'signin', component : SigninComponent },
-  { path: 'body', component : BodyComponent },
+  { path : '' , redirectTo: '/layout' , pathMatch: 'full'},
+  { path: 'layout', loadChildren: './layout/layout.module#LayoutModule'},
+  { path: 'host', loadChildren: './host/host.module#HostModule' },
+  
 
 ];
 

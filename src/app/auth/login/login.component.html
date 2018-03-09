@@ -1,32 +1,59 @@
-<div class="login-page" >
-  
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            
-            <h1>Login</h1>
-            <form role="form">
-                <div class="form-content">
-                    <div class="md-form">
-                        <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="text" id="defaultForm-email" class="form-control" mdbActive>
-                        <label for="defaultForm-email">Your email</label>
-                    </div>
-                    <div class="md-form">
-                        <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="defaultForm-pass" class="form-control" mdbActive>
-                        <label for="defaultForm-pass">Your password</label>
-                    </div>
-                </div>
-                <div class="row col-md-12 ">
-                    <p>
-                        <input type="checkbox" id="test6" checked="checked" />
-                        <label for="test6">Remember Me</label>
-                      </p>
-                    <a class="btn btn-primary btn-rounded waves-effect waves-light">Login</a>
-                </div>
-                
-            </form>
-        </div>
-    </div>
-</div>
 
+
+    
+    <div class="login-pag" >
+           
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                                <h1 class="heading">Login</h1>
+                                <div class="form-group">
+                                    <div class="input-group margin-bottom-sm">
+                                        <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                        <input class="form-control" 
+                                                type="text" 
+                                                placeholder="Email address"
+                                                id="email" 
+                                                formControlName="email">
+                                    </div>
+                                    <div class="error" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">
+                                            <span class="err-msg">Enter a Valid Email-Id ...</span>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                        <input class="form-control" type="password" placeholder="Password" id="password" formControlName="password"> 
+                                    </div>
+                                    <div class="error" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">
+                                            <span class="err-msg">Enter a Valid Password ...</span>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                        <div class="form-group" class="col-sm-5">
+                                                <p>
+                                                        <input type="checkbox" id="test6" checked="checked" />
+                                                        <label for="test6">RememberMe</label>
+                                                      </p>
+                                            </div>
+                                            <div class="form-group row" class="col-sm-6">
+                                                <div class="">
+                                                    <a href="">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class="form-group ">
+                                    <button class="btn btn-primary btn-lg" type="Submit" label="Click" [disabled]="!myForm.valid">Login</button>
+                                </div>
+                            </form>
+                            <div class="form-inline">
+                                <p>dont have account?</p>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary btn-md" (click)="gotosignin()">Signin</button>
+                                    
+                                </div>
+                            </div>
+                            
+                </div>
+            </div>
+        </div>

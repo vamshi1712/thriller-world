@@ -1,58 +1,104 @@
-<div class="login-page" >
+
+
+
+<div class="login-pag" >
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <h1>SignIn</h1>
-            <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <div class="form-content form-group">
-                    <div class="md-form form-group">
-                        <i class="fa fa-user prefix grey-text"></i>
-                        <input
-                        type="text"
-                        id="name"
-                        class="form-control"
-                        formControlName="name" placeholder="Name">
-                        
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+                <h1>SignUp</h1>
+    
+                <div class="form-group" >
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input class="form-control" type="text" placeholder="Full Name" id="fullname" formControlName="fullname"> 
                     </div>
-
-                    <div class="md-form form-group">
-                        <i class="fa fa-envelope prefix grey-text"></i>
-                        <input
-                        type="email"
-                        id="email"
-                        class="form-control"
-                        formControlName="email" placeholder="EMail">
-                        
-                    </div>
-
-                    <div class="md-form form-group">
-                        <i class="fa fa-lock prefix grey-text"></i>
-                        <input
-                        type="password"
-                        id="password"
-                        class="form-control"
-                        formControlName="password" placeholder="Password">
-                        
-                    </div>
-                    <div class="md-form form-group">
-                        <i class="fa fa-phone prefix grey-text"></i>
-                        <input
-                        type="text"
-                        id="phone"
-                        class="form-control"
-                        formControlName="phone" placeholder="phone">
+                    <div class="error err-msg" *ngIf="!registerForm.controls['fullname'].valid && registerForm.controls['fullname'].touched">
+                        Enter Your Full Name ...
                     </div>
                 </div>
-                <div class=" row col-md-12 form-group">
-                    <p>
-                        <input type="checkbox" id="remember" checked="checked" />
-                        <label for="test6">Remember Me</label>
-                      </p> 
+    
+                <div class="form-group">
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input class="form-control" type="text" placeholder="Mobile Number" id="phone" formControlName="phone">
+                    </div>
+                    <div class="error err-msg" *ngIf="!registerForm.controls['phone'].valid && registerForm.controls['phone'].touched">
+                            Enter a Valid phone number ...
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <div class="input-group margin-bottom-sm inline">
+                        <i class="fa fa-envelope "></i>
+                        <input class="form-control" type="text" placeholder="Email address" id="email" formControlName="email">
+                       
+                    </div>
+                    <div class="error err-msg" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched" >
+                            Enter a Valid Email-Id ...
+                    </div>
                     
                 </div>
-                <button
-                class="btn btn-primary"
-                type="submit"
-                >Submit</button>
+
+    
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input class="form-control" type="password" placeholder="Password" id="password" formControlName="password"> 
+                    </div>
+                    <div class="error err-msg" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+                            Enter a Valid Password (must have letters and numbers)
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                        <input class="form-control" type="password" placeholder="confirmpassword" id="confirmpassword" formControlName="confirmpassword"> 
+                    </div>
+                    <div class="error err-msg" *ngIf="!registerForm.controls['confirmpassword'].valid && registerForm.controls['confirmpassword'].touched">
+                            Passwords do not match ...
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="input-group form-inline">
+                            <label class="center" >Status :  </label>
+                            <label class="center"><input class="form-control" type="radio" formControlName="isMarried" value="true">Married</label>
+                            <label class="center"><input class="form-control" type="radio" formControlName="isMarried" value="false">Un Married</label>
+                     </div>
+                    
+                </div>
+
+                <div class="form-group">
+                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                        <label class="center" >Location :</label>
+                        <select id="location" formControlName="location" >
+                                <option value="" disabled selected>Choose your location</option>
+                                <option *ngFor="let c of countries" [ngValue]="c">{{ c }}</option>
+                            </select>
+                        <div class="error err-msg" *ngIf="!registerForm.controls['location'].valid && registerForm.controls['location'].touched">
+                                Select Location ...
+                        </div>
+                        
+                    </div>
+
+                    
+
+                <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-terminal"></i></span>
+                            <input class="form-control" type="text" placeholder="pincode" id="pincode" formControlName="pincode"> 
+                        </div>
+                        <div class="error err-msg" *ngIf="!registerForm.controls['pincode'].valid && registerForm.controls['pincode'].touched">
+                                Provide Pincode ...
+                        </div>
+                        
+                    </div>
+                
+    
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg" type="Submit" label="Click" [disabled]="!registerForm.valid">SignUp</button>
+                </div>
             </form>
         </div>
     </div>

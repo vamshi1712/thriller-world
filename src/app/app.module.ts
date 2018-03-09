@@ -1,36 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
-
-import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { NavBarComponent } from './layout/navbar/nav-bar.component';
-import { LoginComponent } from './auth/login/login.component';
-import { BodyComponent } from './layout/body/body.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SigninComponent } from './auth/signin/signin.component';
+import { AppComponent } from './app.component';
+import { HostModule } from './host/host.module';
+import { LayoutModule } from './layout/layout.module';
+import { AuthService } from './auth/shared/auth.service';
+import { AuthGuard } from './auth.guard';
+import { ErrorService } from './errors/error.service';
+import { ErrorComponent } from './errors/error.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
-    FooterComponent,
-    NavBarComponent,
-    LoginComponent,
-    BodyComponent,
-    SigninComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpModule,
+    HostModule,
+    LayoutModule,
+    BrowserAnimationsModule
+    
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [AuthService,ErrorService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
